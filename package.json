@@ -1,0 +1,11 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "This project implements a todo app",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "author": "Faith Ngani",
+  "license": "ISC"
+}
