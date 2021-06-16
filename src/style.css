@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+}
+
+.main {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px 40px;
+  border-radius: 5px;
+}
+
+.main h1 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.main a {
+  text-decoration: none;
+  color: lightblue;
+}
+
+/* Add styles to Add Project form */
+
+.add-project {
+  position: relative;
+  margin: 20px 0 40px;
+  width: 300px;
+}
+
+.add-project .project-field {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid #fff;
+  display: block;
+  padding: 15px 0;
+  width: 100%;
+  font-size: 18px;
+  color: #fff;
+}
+
+.add-project .project-field:focus,
+.add-project .project-field:valid {
+  outline: 0;
+  border-bottom-color: lightblue;
+}
+
+.add-project label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+}
+
+.add-project span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.555);
+}
+
+.add-project .project-field:focus + label span,
+.add-project .project-field:valid + label span {
+  color: lightblue;
+  transform: translateY(-30px);
+}
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  background-color: lightblue;
+  padding: 15px;
+  font-family: inherit;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 0;
+  width: 100%;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
