@@ -16,6 +16,7 @@ projectForm.addEventListener('submit', (e) => {
 	projectForm.reset();
 	projectForm.classList.add('hidden');
 	projectAddButton.classList.remove('hidden');
+	renderProjects();
 });
 
 labels.forEach((label) => {
@@ -29,7 +30,28 @@ labels.forEach((label) => {
 });
 
 function renderProjects() {
-	projects.forEach((project) => {});
+	projectSection.innerHTML = ``;
+	projects.forEach((project) => {
+		const projectCard = document.createElement('div');
+		projectCard.classList.add('card');
+		projectCard.innerHTML = `
+    <div class="card-body">
+        <h5 class="card-title">${project.name}</h5>
+        <p class="card-text">${project.summary}</p>
+        <a href="#"><span class="material-icons">
+            add_circle
+          </span>
+        </a>
+        <a href=""><span class="material-icons">
+            edit
+          </span></a>
+        <a href="#"><span class="material-icons card-link">
+            delete
+          </span></a>
+      </div>
+    `;
+		projectSection.appendChild(projectCard);
+	});
 }
 
-export default {};
+export default { renderProjects };
