@@ -12,6 +12,11 @@ body {
   align-items: center;
   justify-content: flex-start;
   height: 100vh;
+  background-color: steelblue;
+}
+
+.hidden {
+  display: none;
 }
 
 .main {
@@ -74,7 +79,7 @@ body {
   transform: translateY(-30px);
 }
 
-.btn {
+.save-project {
   cursor: pointer;
   display: inline-block;
   background-color: lightblue;
@@ -86,10 +91,10 @@ body {
   width: 100%;
 }
 
-.btn:focus {
+.save-project:focus {
   outline: 0;
 }
 
-.btn:active {
+.save-project:active {
   transform: scale(0.98);
 }
