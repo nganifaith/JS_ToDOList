@@ -10,33 +10,78 @@
 </head>
 
 <body>
-  <div class="add">
-    <button class="btn align-items-center">
-      <i class="material-icons">
-        add_circle
-      </i>
-      Project
-    </button>
-  </div>
-  <form action="" class="hidden main">
-    <div class="add-project">
-      <input type="text" name='project-name' class="project-field" required>
-      <label for="name" class="text-white">Project name</label>
+  <div class="main-section hidden">
+    <div class="add">
+      <button class="btn align-items-center">
+        <i class="material-icons">
+          add_circle
+        </i>
+        Project
+      </button>
     </div>
-    <div class="add-project">
-      <textarea name="summary" class="project-field" required></textarea>
-      <label for="summary" class="text-white">Project Summary </label>
+    <form action="" class="hidden main">
+      <div class="add-project">
+        <input type="text" name='project-name' class="project-field" required>
+        <label for="project-name" class="text-white">Project name</label>
+      </div>
+      <div class="add-project">
+        <textarea name="summary" class="project-field" required></textarea>
+        <label for="summary" class="text-white">Project Summary </label>
+      </div>
+      <button class="save-project">Submit</button>
+    </form>
+    <div class="project">
     </div>
-    <button class="save-project">Submit</button>
-  </form>
-  <div class="project">
-
   </div>
+  <div class="add-todos">
+    <h2>Project Name</h2>
+    <div class="add">
+      <button class="btn align-items-center">
+        <i class="material-icons">
+          add_circle
+        </i>
+        Todo
+      </button>
+      <form action="" class="main hidden">
+        <div class="add-project">
+          <input type="text" name='title' class="project-field" required>
+          <label for="title" class="text-white">Title</label>
+        </div>
+        <div class="add-project">
+          <input type="date" name='dueDate' class="project-field" required>
+          <label for="dueDate" class="text-white">Due Date</label>
+        </div>
+        <div class="add-project">
+          <textarea name="description" class="project-field" required></textarea>
+          <label for="description" class="text-white">description</label>
+        </div>
+        <div class="add-project">
+          <textarea name="notes" class="project-field" required></textarea>
+          <label for="notes" class="text-white">Short Note</label>
+        </div>
 
-  <script src="bundle.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-    crossorigin="anonymous"></script>
+        <div class="btn-group mb-2" role="group" aria-label="Basic radio toggle button group">
+          <input type="radio" class="btn-check" name="priority" id="low" autocomplete="off" value="Low" checked>
+          <label class="btn btn-outline-info" for="low">Low</label>
+
+          <input type="radio" class="btn-check" name="priority" id="medium" value="medium" autocomplete="off">
+          <label class="btn btn-outline-warning" for="medium">Medium</label>
+
+          <input type="radio" class="btn-check" name="priority" id="high" value="medium" autocomplete="off">
+          <label class="btn btn-outline-danger" for="high">High</label>
+        </div>
+        <button class="save-project">Submit</button>
+      </form>
+      <div class="all-todos">
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        </div>
+      </div>
+    </div>
+
+    <script src="bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"></script>
 </body>
 
 </html>
