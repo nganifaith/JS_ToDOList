@@ -33,6 +33,11 @@ const todoPage = document.querySelector('.add-todos');
 
 // Handle adding project on the main page
 
+document.querySelector('.close-button').addEventListener('click', () => {
+  projectForm.classList.add('hidden');
+  projectSection.classList.remove('hidden');
+  projectAddButton.classList.remove('hidden');
+});
 function renderProjects() {
   projectSection.classList.remove('hidden');
   projectSection.innerHTML = '';
