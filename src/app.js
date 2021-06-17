@@ -1,7 +1,8 @@
 import Project from './project';
 import Todo from './todo';
+import { save, loadProjects } from './localstorage';
 
-export const projects = [
+export const projects = loadProjects() || [
   new Project('Code Review', 'Microverse code review process'),
 ];
 
@@ -9,11 +10,16 @@ export let currentProject = projects[0];
 
 export function createProject(name, summary) {
   projects.push(new Project(name, summary));
+  save(projects);
 }
 
 export function createTodo(title, dueDate, description, notes, priority) {
   currentProject.todos.push(
     new Todo(title, dueDate, description, notes, priority)
   );
-  console.log(currentProject.todos);
+  save(projects);
+}
+
+export function setCurrentProject(project) {
+  currentProject = project;
 }
