@@ -61,7 +61,7 @@ function renderProjects() {
   projectSection.innerHTML = ``;
   projects.forEach((project, idx) => {
     const projectCard = document.createElement('div');
-    projectCard.classList.add('card');
+    projectCard.classList.add('card', 'm-2');
     projectCard.innerHTML = `
   <div class="card-body">
     <h5 class="card-title">${project.name}</h5>
@@ -109,13 +109,14 @@ function renderTodos() {
   todoSection.innerHTML = ``;
   currentProject.todos.forEach((todo) => {
     const todoCard = document.createElement('div');
-    todoCard.classList.add('card');
+    todoCard.classList.add('card', 'mb-2');
     todoCard.innerHTML = `
   <div class="card-header">${todo.title}</div>
     <div class="card-body">
       <h5 class="card-title">${todo.dueDate}</h5>
       <p class="card-text">${todo.description}</p>
-      <a href="" class="read-more"><span class="material-icons">
+      <p class="card-text hidden">${todo.notes}</p>
+      <a href="#" class="read-more"><span class="material-icons">
       read_more
       </span></a>
       <a href="#" class="edit-todo"><span class="material-icons">
@@ -131,6 +132,10 @@ function renderTodos() {
     </div>
 `;
     todoSection.appendChild(todoCard);
+
+    todoCard.querySelector('.read-more').addEventListener('click', () => {
+      todoCard.querySelector('p:nth-child(3)').classList.toggle('hidden');
+    });
   });
 }
 
