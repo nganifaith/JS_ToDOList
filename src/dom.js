@@ -2,8 +2,10 @@ import {
   createProject,
   createTodo,
   currentProject,
+  deleteProject,
   projects,
   setCurrentProject,
+  updateProject,
 } from './app';
 
 // Add animation to form labels
@@ -38,7 +40,16 @@ projectAddButton.addEventListener('click', () => {
 
 projectForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  createProject(projectForm['project-name'].value, projectForm.summary.value);
+  const name = projectForm['project-name'].value;
+  const summary = projectForm.summary.value;
+
+  if (currentProject) {
+    updateProject({ name, summary });
+    setCurrentProject(null);
+  } else {
+    createProject(name, summary);
+  }
+
   projectForm.reset();
   projectForm.classList.add('hidden');
   projectAddButton.classList.remove('hidden');
@@ -46,8 +57,9 @@ projectForm.addEventListener('submit', (e) => {
 });
 
 function renderProjects() {
+  projectSection.classList.remove('hidden');
   projectSection.innerHTML = ``;
-  projects.forEach((project) => {
+  projects.forEach((project, idx) => {
     const projectCard = document.createElement('div');
     projectCard.classList.add('card');
     projectCard.innerHTML = `
@@ -77,7 +89,17 @@ function renderProjects() {
       projectForm.classList.remove('hidden');
       projectAddButton.classList.add('hidden');
       projectSection.classList.add('hidden');
+      setCurrentProject(project);
+      projectForm['project-name'].value = project.name;
+      projectForm.summary.value = project.summary;
     });
+
+    projectCard
+      .querySelector('.delete-project')
+      .addEventListener('click', () => {
+        deleteProject(idx);
+        renderProjects();
+      });
   });
 }
 

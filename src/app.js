@@ -23,3 +23,14 @@ export function createTodo(title, dueDate, description, notes, priority) {
 export function setCurrentProject(project) {
   currentProject = project;
 }
+
+export function updateProject({ name, summary }) {
+  currentProject.name = name;
+  currentProject.summary = summary;
+  save(projects);
+}
+
+export function deleteProject(idx) {
+  projects.splice(idx, 1);
+  save(projects);
+}
