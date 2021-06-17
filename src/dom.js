@@ -14,8 +14,8 @@ document.querySelectorAll('.add-project label').forEach((label) => {
   label.innerHTML = label.innerText
     .split('')
     .map(
-      (letter, idx) =>
-        `<span style="transition-delay:${idx * 50}ms">${letter}</span>`
+      (letter, idx) => `<span style="transition-delay:${idx * 50}ms">${letter}
+      </span>`
     )
     .join('');
 });
@@ -31,34 +31,11 @@ const addTodoForm = document.querySelector('.add-todos form');
 const addTodoButton = document.querySelector('.add-todos button');
 const todoPage = document.querySelector('.add-todos');
 
-//Handle adding project on the main page
-
-projectAddButton.addEventListener('click', () => {
-  projectForm.classList.remove('hidden');
-  projectAddButton.classList.add('hidden');
-});
-
-projectForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const name = projectForm['project-name'].value;
-  const summary = projectForm.summary.value;
-
-  if (currentProject) {
-    updateProject({ name, summary });
-    setCurrentProject(null);
-  } else {
-    createProject(name, summary);
-  }
-
-  projectForm.reset();
-  projectForm.classList.add('hidden');
-  projectAddButton.classList.remove('hidden');
-  renderProjects();
-});
+// Handle adding project on the main page
 
 function renderProjects() {
   projectSection.classList.remove('hidden');
-  projectSection.innerHTML = ``;
+  projectSection.innerHTML = '';
   projects.forEach((project, idx) => {
     const projectCard = document.createElement('div');
     projectCard.classList.add('card', 'm-2');
@@ -102,6 +79,29 @@ function renderProjects() {
       });
   });
 }
+
+projectAddButton.addEventListener('click', () => {
+  projectForm.classList.remove('hidden');
+  projectAddButton.classList.add('hidden');
+});
+
+projectForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = projectForm['project-name'].value;
+  const summary = projectForm.summary.value;
+
+  if (currentProject) {
+    updateProject({ name, summary });
+    setCurrentProject(null);
+  } else {
+    createProject(name, summary);
+  }
+
+  projectForm.reset();
+  projectForm.classList.add('hidden');
+  projectAddButton.classList.remove('hidden');
+  renderProjects();
+});
 
 // Handles Adding todo to a project
 
