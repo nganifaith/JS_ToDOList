@@ -6,7 +6,8 @@ export const projects = loadProjects() || [
   new Project('Code Review', 'Microverse code review process'),
 ];
 
-export let currentProject = projects[0];
+let currentProject = null;
+let currentTodo = null;
 
 export function createProject(name, summary) {
   projects.push(new Project(name, summary));
@@ -24,6 +25,10 @@ export function setCurrentProject(project) {
   currentProject = project;
 }
 
+export function getCurrentProject() {
+  return currentProject;
+}
+
 export function updateProject({ name, summary }) {
   currentProject.name = name;
   currentProject.summary = summary;
@@ -32,5 +37,27 @@ export function updateProject({ name, summary }) {
 
 export function deleteProject(idx) {
   projects.splice(idx, 1);
+  save(projects);
+}
+
+export function setCurrentTodo(todo) {
+  currentTodo = todo;
+}
+
+export function getCurrentTodo() {
+  return currentTodo;
+}
+
+export function updateTodo({ title, dueDate, description, notes, priority }) {
+  currentTodo.title = title;
+  currentTodo.dueDate = dueDate;
+  currentTodo.description = description;
+  currentTodo.notes = notes;
+  currentTodo.priority = priority;
+  save(projects);
+}
+
+export function deleteTodo(idx) {
+  currentProject.todos.splice(idx, 1);
   save(projects);
 }

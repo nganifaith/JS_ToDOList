@@ -39,6 +39,7 @@ body {
   right: 20px;
   top: 10px;
   cursor: pointer;
+  color: #fff;
 }
 
 /* Add styles to Add Project form */
@@ -103,4 +104,25 @@ body {
 
 .save-project:active {
   transform: scale(0.98);
+}
+
+.low {
+  background-color: #12caf0;
+}
+
+.medium {
+  background-color: #ffc007;
+}
+
+.high {
+  background-color: #d83746;
+}
+
+.priority {
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
