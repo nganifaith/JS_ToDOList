@@ -47,6 +47,7 @@ Knowledge about JS:
 
 ## Start App
 
+- run npm install
 - run npm start in your command line
 
 ## Author
