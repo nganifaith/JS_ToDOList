@@ -16,7 +16,7 @@ export function createProject(name, summary) {
 
 export function createTodo(title, dueDate, description, notes, priority) {
   currentProject.todos.push(
-    new Todo(title, dueDate, description, notes, priority)
+    new Todo(title, dueDate, description, notes, priority),
   );
   save(projects);
 }
@@ -48,7 +48,9 @@ export function getCurrentTodo() {
   return currentTodo;
 }
 
-export function updateTodo({ title, dueDate, description, notes, priority }) {
+export function updateTodo({
+  title, dueDate, description, notes, priority,
+}) {
   currentTodo.title = title;
   currentTodo.dueDate = dueDate;
   currentTodo.description = description;

@@ -19,7 +19,7 @@ document.querySelectorAll('.add-project label').forEach((label) => {
     .split('')
     .map(
       (letter, idx) => `<span style="transition-delay:${idx * 50}ms">${letter}
-      </span>`
+      </span>`,
     )
     .join('');
 });
@@ -44,6 +44,64 @@ document.querySelector('.close-button').addEventListener('click', () => {
   projectSection.classList.remove('hidden');
   projectAddButton.classList.remove('hidden');
 });
+
+function renderTodos() {
+  todoSection.innerHTML = '';
+  getCurrentProject().todos.forEach((todo, idx) => {
+    const todoCard = document.createElement('div');
+    todoCard.classList.add('card', 'mb-2');
+    todoCard.innerHTML = `
+  <div class="card-header">${todo.title}</div>
+    <div class="card-body">
+      <h5 class="card-title">${todo.dueDate}</h5>
+      <p class="card-text">${todo.description}</p>
+      <p class="card-text hidden">${todo.notes}</p>
+      <a href="#" class="read-more"><span class="material-icons">
+      read_more
+      </span></a>
+      <a href="#" class="edit-todo"><span class="material-icons">
+          edit
+          </span>
+      </a>
+      <a href="#" class="delete-todo"><span class="material-icons card-link">
+      delete
+      </span></a>
+    </div>
+    <div class="card-footer ${todo.priority}">
+      <small class="priority">${todo.priority}</small>
+    </div>
+`;
+    todoSection.appendChild(todoCard);
+
+    todoCard.querySelector('.read-more').addEventListener('click', () => {
+      todoCard.querySelector('p:nth-child(3)').classList.toggle('hidden');
+    });
+
+    todoCard.querySelector('.edit-todo').addEventListener('click', () => {
+      addTodoForm.classList.remove('hidden');
+      addTodoButton.classList.add('hidden');
+      todoSection.classList.add('hidden');
+      setCurrentTodo(todo);
+      addTodoForm.title.value = todo.title;
+      addTodoForm.dueDate.value = todo.dueDate;
+      addTodoForm.description.value = todo.description;
+      addTodoForm.notes.value = todo.notes;
+      addTodoForm.priority.value = todo.priority;
+    });
+
+    todoCard.querySelector('.delete-todo').addEventListener('click', () => {
+      deleteTodo(idx);
+      renderTodos();
+    });
+  });
+}
+
+function renderProject(project) {
+  todoPage.classList.remove('hidden');
+  todoPage.querySelector('h2').innerHTML = project.name;
+  setCurrentProject(project);
+  renderTodos();
+}
 
 function renderProjects() {
   projectSection.classList.remove('hidden');
@@ -115,8 +173,6 @@ projectForm.addEventListener('submit', (e) => {
   renderProjects();
 });
 
-// Handles Adding todo to a project
-
 addTodoForm.querySelector('.close-button').addEventListener('click', () => {
   addTodoForm.reset();
   setCurrentTodo(null);
@@ -129,57 +185,6 @@ todoPage.querySelector('i').addEventListener('click', () => {
   todoPage.classList.add('hidden');
   mainSection.classList.remove('hidden');
 });
-
-function renderTodos() {
-  todoSection.innerHTML = ``;
-  getCurrentProject().todos.forEach((todo, idx) => {
-    const todoCard = document.createElement('div');
-    todoCard.classList.add('card', 'mb-2');
-    todoCard.innerHTML = `
-  <div class="card-header">${todo.title}</div>
-    <div class="card-body">
-      <h5 class="card-title">${todo.dueDate}</h5>
-      <p class="card-text">${todo.description}</p>
-      <p class="card-text hidden">${todo.notes}</p>
-      <a href="#" class="read-more"><span class="material-icons">
-      read_more
-      </span></a>
-      <a href="#" class="edit-todo"><span class="material-icons">
-          edit
-          </span>
-      </a>
-      <a href="#" class="delete-todo"><span class="material-icons card-link">
-      delete
-      </span></a>
-    </div>
-    <div class="card-footer ${todo.priority}">
-      <small class="priority">${todo.priority}</small>
-    </div>
-`;
-    todoSection.appendChild(todoCard);
-
-    todoCard.querySelector('.read-more').addEventListener('click', () => {
-      todoCard.querySelector('p:nth-child(3)').classList.toggle('hidden');
-    });
-
-    todoCard.querySelector('.edit-todo').addEventListener('click', () => {
-      addTodoForm.classList.remove('hidden');
-      addTodoButton.classList.add('hidden');
-      todoSection.classList.add('hidden');
-      setCurrentTodo(todo);
-      addTodoForm.title.value = todo.title;
-      addTodoForm.dueDate.value = todo.dueDate;
-      addTodoForm.description.value = todo.description;
-      addTodoForm.notes.value = todo.notes;
-      addTodoForm.priority.value = todo.priority;
-    });
-
-    todoCard.querySelector('.delete-todo').addEventListener('click', () => {
-      deleteTodo(idx);
-      renderTodos();
-    });
-  });
-}
 
 addTodoButton.addEventListener('click', () => {
   addTodoForm.classList.remove('hidden');
@@ -195,7 +200,13 @@ addTodoForm.addEventListener('submit', (e) => {
   const priority = addTodoForm.priority.value;
 
   if (getCurrentTodo()) {
-    updateTodo({ title, dueDate, description, notes, priority });
+    updateTodo({
+      title,
+      dueDate,
+      description,
+      notes,
+      priority,
+    });
     setCurrentTodo(null);
   } else {
     createTodo(title, dueDate, description, notes, priority);
@@ -207,14 +218,5 @@ addTodoForm.addEventListener('submit', (e) => {
   todoSection.classList.remove('hidden');
   renderTodos();
 });
-
-// Render a project with its todos
-
-function renderProject(project) {
-  todoPage.classList.remove('hidden');
-  todoPage.querySelector('h2').innerHTML = project.name;
-  setCurrentProject(project);
-  renderTodos();
-}
 
 export default { renderProjects };
