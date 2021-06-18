@@ -13,13 +13,12 @@ import {
 } from './app';
 
 // Add animation to form labels
-
 document.querySelectorAll('.add-project label').forEach((label) => {
   label.innerHTML = label.innerText
     .split('')
     .map(
       (letter, idx) => `<span style="transition-delay:${idx * 50}ms">${letter}
-      </span>`,
+      </span>`
     )
     .join('');
 });
@@ -36,7 +35,6 @@ const addTodoButton = document.querySelector('.add-todos button');
 const todoPage = document.querySelector('.add-todos');
 
 // Handle adding project on the main page
-
 document.querySelector('.close-button').addEventListener('click', () => {
   projectForm.reset();
   setCurrentProject(null);
