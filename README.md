@@ -1,29 +1,29 @@
-# Restaurant Page
+# Todo App
+
 [](https://img.shields.io/badge/Microverse-blueviolet)
-
-
 
 ## App
 
-![screenshot](./assets/menu.png)
+![home](./assets/home.png)
+![todos](./assets/todo.png)
 
-## About 
+## About
 
-This is a simple single-page application that displaces different content when a particular set of data is requested. It has three main sections.
-The home page which displaces details about a restaurant
-The menu page and,
-The contact page.
+This is a basic todo app. That allows the user to create a project and add a list of activities (todos) to it.
+The program starts with a default project in which a user can add todo to it using the plus sign.
+A todo just contain title, description and priority.
 
 ## Built With
 
 - Javascript
-- Bootstrap
+- Bootstrap 5
 - Html
 - Webpack
 
-
 ### Prerequisites
+
 Knowledge about JS:
+
 - Basic data structures
 - Loops
 - Arrays
@@ -34,18 +34,19 @@ Knowledge about JS:
 - Knownledge of webpack
 
 ## Clone project
+
 - To get a local copy up and running follow these simple example steps.
-- Clone this repository with git clone https://github.com/nganifaith/restaurant_page using your terminal or command line.
-- Change to the project directory by entering: cd restaurant_page in the terminal.
+- Clone this repository with git clone https://github.com/nganifaith/JS_ToDOList.git using your terminal or command line.
+- Change to the project directory by entering: cd JS_ToDoList in the terminal.
 
 ## Command line steps
-- $ git clone `$ git clone ttps://github.com/nganifaith/restaurant_page
+
+- $ git clone `$ git clone https://github.com/nganifaith/JS_ToDOList.git
 - $ git checkout feature
-- $ cd restaurant_page
-
-
+- $ cd JS_ToDoList
 
 ## Start App
+
 - run npm start in your command line
 
 ## Author
@@ -56,12 +57,11 @@ Knowledge about JS:
 - Twitter: [@Bright_Ngani](https://twitter.com/bright_ngani)
 - LinkedIn: [Ngani Faith](https://www.linkedin.com/in/ngani-faith/)
 
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/nganifaith/restaurant_page/issues).
+Feel free to check the [issues page](https://github.com/nganifaith/JS_ToDOList/issues).
 
 ## Show your support
 
