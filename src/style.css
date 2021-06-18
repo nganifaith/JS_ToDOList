@@ -7,10 +7,21 @@
 
 body {
   font-family: 'Muli', sans-serif;
-  margin-top: 15px;
-  display: flex;
-  height: 100vh;
-  background-color: steelblue;
+  background: linear-gradient(45deg, #4782b4, transparent);
+}
+
+.wrapper {
+  max-width: 300px;
+  margin: 30px auto;
+  overflow: auto;
+  height: calc(100vh - 60px);
+  background: #4782b4;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.add {
+  text-align: right;
 }
 
 .hidden {
@@ -47,7 +58,6 @@ body {
 .add-project {
   position: relative;
   margin: 20px 0 40px;
-  width: 300px;
 }
 
 .add-project .project-field {
@@ -125,4 +135,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.add-todos i {
+  cursor: pointer;
 }

@@ -117,6 +117,19 @@ projectForm.addEventListener('submit', (e) => {
 
 // Handles Adding todo to a project
 
+addTodoForm.querySelector('.close-button').addEventListener('click', () => {
+  addTodoForm.reset();
+  setCurrentTodo(null);
+  addTodoForm.classList.add('hidden');
+  todoSection.classList.remove('hidden');
+  addTodoButton.classList.remove('hidden');
+});
+
+todoPage.querySelector('i').addEventListener('click', () => {
+  todoPage.classList.add('hidden');
+  mainSection.classList.remove('hidden');
+});
+
 function renderTodos() {
   todoSection.innerHTML = ``;
   getCurrentProject().todos.forEach((todo, idx) => {
