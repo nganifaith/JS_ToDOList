@@ -50,6 +50,10 @@ Knowledge about JS:
 - run npm install
 - run npm start in your command line
 
+## Live Site
+
+[Link](https://silly-colden-09da2e.netlify.app/#)
+
 ## Author
 
 👤 **Ngani Faith**
