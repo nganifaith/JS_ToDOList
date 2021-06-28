@@ -2507,6 +2507,11 @@
   dependencies:
     "esutils" "^2.0.2"
 
+"dom-storage@^2.1.0":
+  "integrity" "sha512-g6RpyWXzl0RR6OTElHKBl7nwnK87GUyZMYC7JWsB/IA73vpqK2K6LT39x4VepLxlSsWBFrPVLnsSR5Jyty0+2Q=="
+  "resolved" "https://registry.npmjs.org/dom-storage/-/dom-storage-2.1.0.tgz"
+  "version" "2.1.0"
+
 "domexception@^2.0.1":
   "integrity" "sha512-yxJ2mFy/sibVQlu5qHjOkf9J3K6zgmCxgJ94u2EdvDOV09H+32LtRswEcUsmUWN72pVLOEnTSRaIVVzVQgS0dg=="
   "resolved" "https://registry.npmjs.org/domexception/-/domexception-2.0.1.tgz"
@@ -5274,6 +5279,11 @@
   "version" "2.0.0"
   dependencies:
     "find-up" "^2.1.0"
+
+"populate.js@^1.2.2":
+  "integrity" "sha512-VITxkod2Qzlab4URucL86ExQXytjQ/NJbF7Wvfv4eRwFzyaxZUNo8ZoAGsSeahZ9CnifPlhZlz1zt9auzL3O3Q=="
+  "resolved" "https://registry.npmjs.org/populate.js/-/populate.js-1.2.2.tgz"
+  "version" "1.2.2"
 
 "portfinder@^1.0.26":
   "integrity" "sha512-Se+2isanIcEqf2XMHjyUKskczxbPH7dQnlMjXX6+dybayyHvAf/TCgyMRlzf/B6QDhAEFOGes0pzRo3by4AbMA=="

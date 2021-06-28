@@ -1,19 +1,11 @@
 import Project from '../project';
 
-const projects = [
-  {
-    name: 'First project',
-    summary: 'This is the first test project',
-    todo: ['Add styles', 'Submit for review'],
-  },
-  {
-    name: 'Second Test project',
-    summary: 'This is a second project',
-    todo: [],
-  },
-];
+const projects = {
+  name: 'First project',
+  summary: 'This is the first test project',
+};
 
-const testProjects = new Project(projects[0].name, projects[0].summary);
+const testProjects = new Project(projects.name, projects.summary);
 
 test('return the first project', () => {
   expect(testProjects).not.toBe(null);
