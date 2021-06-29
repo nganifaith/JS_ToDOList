@@ -13,6 +13,11 @@ This is a basic todo app. That allows the user to create a project and add a lis
 The program starts with a default project in which a user can add todo to it using the plus sign.
 A todo just contain title, description and priority.
 
+Project also contains test files for the various functions in:
+
+- app.js
+- projects class and
+
 ## Built With
 
 - Javascript
@@ -49,6 +54,13 @@ Knowledge about JS:
 
 - run `npm install`
 - run `npm start` in your command line
+
+## Run test
+
+- $ `git checkout test`
+- run `npm test`
+
+![test](./assets/test.png)
 
 ## Live Site
 
