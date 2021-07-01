@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  background: linear-gradient(45deg, #4782b4, transparent);
+}
+
+.wrapper {
+  max-width: 300px;
+  margin: 30px auto;
+  overflow: auto;
+  height: calc(100vh - 60px);
+  background: #4782b4;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.add {
+  text-align: right;
+}
+
+.hidden {
+  display: none;
+}
+
+.main {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px 40px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.main h1 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.main a {
+  text-decoration: none;
+  color: lightblue;
+}
+
+.close-button {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Add styles to Add Project form */
+
+.add-project {
+  position: relative;
+  margin: 20px 0 40px;
+}
+
+.add-project .project-field {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid #fff;
+  display: block;
+  padding: 15px 0;
+  width: 100%;
+  font-size: 18px;
+  color: #fff;
+}
+
+.add-project .project-field:focus,
+.add-project .project-field:valid {
+  outline: 0;
+  border-bottom-color: lightblue;
+}
+
+.add-project label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+}
+
+.add-project span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.555);
+}
+
+.add-project .project-field:focus + label span,
+.add-project .project-field:valid + label span {
+  color: lightblue;
+  transform: translateY(-30px);
+}
+
+.save-project {
+  cursor: pointer;
+  display: inline-block;
+  background-color: lightblue;
+  padding: 15px;
+  font-family: inherit;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 0;
+  width: 100%;
+}
+
+.save-project:focus {
+  outline: 0;
+}
+
+.save-project:active {
+  transform: scale(0.98);
+}
+
+.low {
+  background-color: #12caf0;
+}
+
+.medium {
+  background-color: #ffc007;
+}
+
+.high {
+  background-color: #d83746;
+}
+
+.priority {
+  font-size: 17px;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-todos i {
+  cursor: pointer;
+}
